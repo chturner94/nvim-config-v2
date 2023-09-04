@@ -19,12 +19,22 @@ function M.has(plugin)
 	return require("lazy.core.config").spec.plugins[plugin] ~= nil
 end
 
+function M.opts(name)
+    local plugin = require("lazy.core.config").plugins[name]
+    if not plugin then
+        return {}
+    end
+    local Plugin = require("lazy.core.plugin")
+    return Plugin.values(plugin, "opts", false)
+end
+
 -- this will return a function that calls telescope.
 -- cwd will default to lazyvim.util.get_root
 -- for `files`, git_files or find_files will be chosen depending on .git
 function M.telescope(builtin, opts)
   local params = { builtin = builtin, opts = opts }
   return function()
+        
     builtin = params.builtin
     opts = params.opts
     opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
@@ -51,6 +61,37 @@ function M.telescope(builtin, opts)
     end
 
     require("telescope.builtin")[builtin](opts)
+  end
+end
+
+---@param fn fun()
+function M.on_very_lazy(fn)
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+      fn()
+    end,
+  })
+end
+
+---@param name string
+---@param fn fun(name:string)
+function M.on_load(name, fn)
+  local Config = require("lazy.core.config")
+  if Config.plugins[name] and Config.plugins[name]._.loaded then
+    vim.schedule(function()
+      fn(name)
+    end)
+  else
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyLoad",
+      callback = function(event)
+        if event.data == name then
+          fn(name)
+          return true
+        end
+      end,
+    })
   end
 end
 

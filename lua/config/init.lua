@@ -1,5 +1,6 @@
 
 local M = {}
+
 M.defaults = {
 	colorscheme = function()
 	require("moonfly").load()
