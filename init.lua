@@ -19,4 +19,4 @@ require("lazy").setup({ -- Additional imports should go here.
 require("config.keymaps")
 require("config.autocmds")
 
-vim.cmd([[colorscheme moonfly]])
+vim.cmd([[colorscheme dracula_pro]])

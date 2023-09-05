@@ -1,9 +1,8 @@
-
 local M = {}
 
 M.defaults = {
 	colorscheme = function()
-	require("moonfly").load()
+		require("tokyonight").load()
 	end,
 
 	defaults = {
@@ -12,64 +11,63 @@ M.defaults = {
 	},
 	icons = {
 		dap = {
-      Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-      Breakpoint = " ",
-      BreakpointCondition = " ",
-      BreakpointRejected = { " ", "DiagnosticError" },
-      LogPoint = ".>",
-    },
-    diagnostics = {
-      Error = " ",
-      Warn = " ",
-      Hint = " ",
-      Info = " ",
-    },
-    git = {
-      added = " ",
-      modified = " ",
-      removed = " ",
-    },
-    kinds = {
-      Array = " ",
-      Boolean = " ",
-      Class = " ",
-      Color = " ",
-      Constant = " ",
-      Constructor = " ",
-      Copilot = " ",
-      Enum = " ",
-      EnumMember = " ",
-      Event = " ",
-      Field = " ",
-      File = " ",
-      Folder = " ",
-      Function = " ",
-      Interface = " ",
-      Key = " ",
-      Keyword = " ",
-      Method = " ",
-      Module = " ",
-      Namespace = " ",
-      Null = " ",
-      Number = " ",
-      Object = " ",
-      Operator = " ",
-      Package = " ",
-      Property = " ",
-      Reference = " ",
-      Snippet = " ",
-      String = " ",
-      Struct = " ",
-      Text = " ",
-      TypeParameter = " ",
-      Unit = " ",
-      Value = " ",
-      Variable = " ",
-    },
-  },
-	}
+			Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+			Breakpoint = " ",
+			BreakpointCondition = " ",
+			BreakpointRejected = { " ", "DiagnosticError" },
+			LogPoint = ".>",
+		},
+		diagnostics = {
+			Error = " ",
+			Warn = " ",
+			Hint = " ",
+			Info = " ",
+		},
+		git = {
+			added = " ",
+			modified = " ",
+			removed = " ",
+		},
+		kinds = {
+			Array = " ",
+			Boolean = " ",
+			Class = " ",
+			Color = " ",
+			Constant = " ",
+			Constructor = " ",
+			Copilot = " ",
+			Enum = " ",
+			EnumMember = " ",
+			Event = " ",
+			Field = " ",
+			File = " ",
+			Folder = " ",
+			Function = " ",
+			Interface = " ",
+			Key = " ",
+			Keyword = " ",
+			Method = " ",
+			Module = " ",
+			Namespace = " ",
+			Null = " ",
+			Number = " ",
+			Object = " ",
+			Operator = " ",
+			Package = " ",
+			Property = " ",
+			Reference = " ",
+			Snippet = " ",
+			String = " ",
+			Struct = " ",
+			Text = " ",
+			TypeParameter = " ",
+			Unit = " ",
+			Value = " ",
+			Variable = " ",
+		},
+	},
+}
 local options
-
 
 function M.initPlugin()
 	local Plugin = require("lazy.core.plugin")
