@@ -308,7 +308,26 @@ return {
 			}
 		end,
 	},
-
+	-- TODO: implement Navigator
+	-- Navigator
+	--[[
+    {
+        {
+            "ray-x/navigator.lua",
+            dependencies = {
+                { "ray-x/guihua.lua", run = 'cd lua/fzy && make' },
+                { "neovim/nvim-lspconfig" },
+                opts = {
+                    disable_filetype = { "TelescopePrompt", "guihua", "guihua_rust", "clap_input" },
+                },
+                config = function(opts)
+                    require'navigator'.setup(opts)
+                end,
+            },
+        }
+    },
+    ]]
+	--
 	-- icons
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
