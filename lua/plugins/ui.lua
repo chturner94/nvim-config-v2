@@ -274,6 +274,7 @@ return {
 				command_palette = true,
 				long_message_to_split = true,
 				inc_rename = true,
+				lsp_doc_border = true,
 			},
 		},
     -- stylua: ignore
@@ -287,6 +288,7 @@ return {
       { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward", mode = {"i", "n", "s"}},
     },
 	},
+	--
 
 	{
 		"SmiteshP/nvim-navic",
@@ -308,29 +310,6 @@ return {
 			}
 		end,
 	},
-	-- TODO: implement Navigator
-	-- Navigator
-	--[[
-    {
-        {
-            "ray-x/navigator.lua",
-            dependencies = {
-                { "ray-x/guihua.lua", run = 'cd lua/fzy && make' },
-                { "neovim/nvim-lspconfig" },
-                opts = {
-                    disable_filetype = { "TelescopePrompt", "guihua", "guihua_rust", "clap_input" },
-                },
-                config = function(opts)
-                    require'navigator'.setup(opts)
-                end,
-            },
-        }
-    },
-    ]]
-	--
-	-- icons
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
-
 	-- ui components
 	{ "MunifTanjim/nui.nvim", lazy = true },
 }
