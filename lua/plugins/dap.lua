@@ -16,6 +16,9 @@ return {
 				dapui.setup(opts)
 				dap.listeners.after.event_initialized["dapui_config"] = function()
 					dapui.open({})
+					require("overseer").patch_dap(true)
+					require("dap.ext.vscode").json_decode = require("overseer.json").decode
+					require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp" } })
 				end
 				dap.listeners.before.event_terminated["dapui_config"] = function()
 					dapui.close({})
