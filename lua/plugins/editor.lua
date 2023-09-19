@@ -1,6 +1,18 @@
 local Util = require("utils")
 
 return {
+
+	{
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+		keys = {
+			{ "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" },
+		},
+	},
 	{
 		"hrsh7th/nvim-cmp",
 		version = false, -- last release is way too old
