@@ -1,23 +1,4 @@
 return {
-	-- Remote Development Plugin
-	-- [Distant.nvim](https://distant.dev/editors/neovim/)
-	"chipsenkbeil/distant.nvim",
-	branch = "v0.3.0",
-	opts = {
-		{
-			network = {
-				timeout = {
-					max = 1000,
-				},
-			},
-		},
-		keys = {
-			{ "" },
-		},
-		config = function(_, opts)
-			require("distant"):setup(opts)
-		end,
-	},
 	-- measure startuptime
 	{
 		"dstein64/vim-startuptime",

@@ -136,6 +136,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
+		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
 		opts = function()
 			local config = require("config")
 			local icons = config.defaults.icons
@@ -160,7 +161,12 @@ return {
 								hint = icons.diagnostics.Hint,
 							},
 						},
-						{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+						{
+							"filetype",
+							icon_only = true,
+							separator = " ",
+							padding = { left = 1, right = 0 },
+						},
 						{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
             -- stylua: ignore
             {
