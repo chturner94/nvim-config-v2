@@ -14,6 +14,7 @@ require("config.options")
 require("lazy").setup({ -- Additional imports should go here.
 	{ import = "plugins" },
 	{ import = "plugins.lsp.lang.go" },
+	{ import = "plugins.lsp.lang.typescript" },
 })
 
 require("config.keymaps")
