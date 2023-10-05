@@ -220,8 +220,8 @@ return {
 		end,
 	},
 	-- copilot
-	{
-		"zbirenbaum/copilot.lua",
+	--[[{
+		"zbirenbaum/copilot.lua",j
 		cmd = "Copilot",
 		build = ":Copilot auth",
 		opts = {
@@ -296,4 +296,5 @@ return {
 			table.insert(opts.sorting.comparators, 1, require("copilot_cmp.comparators").prioritize)
 		end,
 	},
+    --]]
 }

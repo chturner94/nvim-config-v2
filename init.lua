@@ -16,10 +16,10 @@ require("lazy").setup({ -- Additional imports should go here.
 	{ import = "plugins.lsp.lang.docker" },
 	{ import = "plugins.lsp.lang.go" },
 	{ import = "plugins.lsp.lang.typescript" },
-	{ import = "plugins.lsp.lang.java" },
+	{ import = "plugins.lsp.lang.barium" },
 	{ import = "plugins.lsp.lang.json" },
 	{ import = "plugins.lsp.lang.yaml" },
-	{ import = "plugins.lsp.lang.barium" },
+	--	{ import = "plugins.lsp.lang.barium" },
 })
 require("config.keymaps")
 require("config.autocmds")

@@ -2,3 +2,4 @@ lazy-lock.json
 lazy-lock.json
 node_modules
 yarn.lock
+lua/plugins/lsp/lang/barium.lua
