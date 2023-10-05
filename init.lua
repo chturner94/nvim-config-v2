@@ -1,4 +1,11 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local has_barium = false
+local f = io.open("plugins.lsp.lang.barium", "r")
+if f ~= nil then
+	io.close(f)
+	has_barium = true
+end
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -16,11 +23,18 @@ require("lazy").setup({ -- Additional imports should go here.
 	{ import = "plugins.lsp.lang.docker" },
 	{ import = "plugins.lsp.lang.go" },
 	{ import = "plugins.lsp.lang.typescript" },
-	{ import = "plugins.lsp.lang.barium" },
 	{ import = "plugins.lsp.lang.json" },
 	{ import = "plugins.lsp.lang.yaml" },
-	--	{ import = "plugins.lsp.lang.barium" },
 })
+if has_barium then
+	require("lazy").setup({
+		{ import = "plugins.lsp.lang.barium" },
+	})
+else
+	require("lazy").setup({
+		{ import = "plugins.lsp.lang.java" },
+	})
+end
 require("config.keymaps")
 require("config.autocmds")
 
