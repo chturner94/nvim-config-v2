@@ -1,6 +1,12 @@
 local Util = require("utils")
 
 return {
+	{
+		"mbbill/undotree",
+		keys = {
+			{ "<leader><leader>u", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree" },
+		},
+	},
 
 	{
 		"iamcco/markdown-preview.nvim",
